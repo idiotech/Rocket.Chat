@@ -55,11 +55,14 @@ export class BaseRaw<T> implements IBaseRaw<T> {
 
 	protected name: string;
 
+	public readonly col: Collection<T>,
+	public readonly trash?: Collection<T>,
 	constructor(
-		public readonly col: Collection<T>,
-		public readonly trash?: Collection<T>,
 	) {
 		this.name = this.col.collectionName.replace(baseName, '');
+		if (this.name === 'notification_queue') {
+			console.log("====== BaseRaw:", this.name, this.col.findOneAndUpdate);
+		}
 	}
 
 	_ensureDefaultFields<T>(options: FindOneOptions<T>): FindOneOptions<T> {

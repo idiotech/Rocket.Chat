@@ -72,6 +72,7 @@ import { initWatchers } from '../../../../server/modules/watchers/watchers.modul
 
 const trashCollection = trash.rawCollection();
 
+console.log("initializing raw collections", NotificationQueueModel.model.rawCollection());
 export const Permissions = new PermissionsRaw(PermissionsModel.model.rawCollection(), trashCollection);
 export const Subscriptions = new SubscriptionsRaw(SubscriptionsModel.model.rawCollection(), trashCollection);
 export const Settings = new SettingsRaw(SettingsModel.model.rawCollection(), trashCollection);

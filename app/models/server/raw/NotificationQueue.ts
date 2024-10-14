@@ -57,6 +57,7 @@ export class NotificationQueueRaw extends BaseRaw<INotification> {
 	async findNextInQueueOrExpired(expired: Date): Promise<INotification | undefined> {
 		const now = new Date();
 
+		console.log("@@@@@@@ notification queue!:", this.col);
 		const result = await this.col.findOneAndUpdate({
 			$and: [{
 				$or: [
